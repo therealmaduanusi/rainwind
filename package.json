@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "node_modules/.bin/babel views -d dist"
+    "build": "node_modules/.bin/babel . -d dist"
   },
   "keywords": [],
   "author": "Victor Maduanusi",
