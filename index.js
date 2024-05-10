@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 app.get('/', (req, res) => {
-    res.render('index.ejs')
+  res.render('index.ejs')
 })
 
 app.post("/get-weather", async (req, res) => {
