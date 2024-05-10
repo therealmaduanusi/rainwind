@@ -5,7 +5,7 @@ const app = express();
 
 
 // Mount the homeRouter to the '/home' path
-app.use("/home", homeRouter);
+app.use("/", homeRouter);
 
 const port = process.env.PORT || 3000
 
