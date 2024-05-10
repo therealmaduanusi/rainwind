@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+</head>
+<body>
+    <form method="post">
+        <h1>Weather App</h1>
+        <input type="text" name="city" placeholder="enter city name" autofocus>
+        <input type="submit" formaction="/get-weather">
+    </form>
+    <% if (locals.content) { %>
+        <ul>
+            <li><%= content.weather[0].main %></li>
+            <li><%= content.name %> <span><%= content.sys.country%></span></li>
+        </ul>
+        <p>description: <%= content.weather[0].description %></p>
+    <% } else { %>
+        <p>what for data...</p>
+    <%  } %>
+
+
+</body>
+</html>
