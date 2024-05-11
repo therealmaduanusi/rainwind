@@ -21,28 +21,28 @@ homeRouter.get('/', (req, res) => {
 })
 
 homeRouter.post("/get-weather", async (req, res) => {
-    const cityName = req.body.city;
-    // const lon = req.body.lon;
-    // console.log(searchId);
-    // res.redirect('/')
-    // res.render('index.ejs', {
-    //     content: searchId
-    // })
-    const queryParams = {
-        params: {
-            q: cityName,
-            // lon: lon,
-            apikey: weather_apiKey
-        },
-    };
-    try {
-      const result = await axios.get(API_URL, queryParams);
-    //   console.log(result);
-      res.render("index.ejs", { content: result.data });
-    } catch (error) {
-        console.log(error.response.data);
-      res.render("index.ejs", { content: JSON.stringify(error.response.data) });
-    }
+  const cityName = req.body.city;
+  // const lon = req.body.lon;
+  // console.log(searchId);
+  // res.redirect('/')
+  // res.render('index.ejs', {
+  //     content: searchId
+  // })
+  const queryParams = {
+      params: {
+          q: cityName,
+          // lon: lon,
+          apikey: weather_apiKey
+      },
+  };
+  try {
+    const result = await axios.get(API_URL, queryParams);
+  //   console.log(result);
+    res.render("index.ejs", { content: result.data });
+  } catch (error) {
+      console.log(error.response.data);
+    res.render("index.ejs", { content: JSON.stringify(error.response.data) });
+  }
 });
 
 export default homeRouter;
