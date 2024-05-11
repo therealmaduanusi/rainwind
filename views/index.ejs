@@ -7,10 +7,10 @@
 </head>
 <body>
     <!-- remember to handle error if weather name isn't register -->
-    <form method="post">
+    <form action="/" method="post">
         <h1>Weather App</h1>
         <input type="text" name="city" placeholder="enter city name" autofocus>
-        <input type="submit" formaction="/get-weather">
+        <input type="submit">
     </form>
     <% if (locals.content) { %>
         <ul>

@@ -19,7 +19,7 @@ homeRouter.get('/', (req, res) => {
   res.render('index.ejs')
 })
 
-homeRouter.post("/get-weather", async (req, res) => {
+homeRouter.post("/", async (req, res) => {
   const cityName = req.body.city;
   // const lon = req.body.lon;
   // console.log(searchId);
@@ -28,11 +28,11 @@ homeRouter.post("/get-weather", async (req, res) => {
   //     content: searchId
   // })
   const queryParams = {
-      params: {
-          q: cityName,
-          // lon: lon,
-          apikey: weather_apiKey
-      },
+    params: {
+      q: cityName,
+      // lon: lon,
+      apikey: weather_apiKey
+    },
   };
   try {
     const result = await axios.get(API_URL, queryParams);
