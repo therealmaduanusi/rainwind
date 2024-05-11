@@ -2,12 +2,12 @@ import express from "express";
 import homeRouter from "./routes/home.js";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
-import ejsLayouts from "express-ejs-layouts"
 
 const app = express();
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename);
-app.use(ejsLayouts);
+
+// console.log(app.use(ejsLayouts).locals.settings.views);
 
 // Set EJS as the view engine
 app.set('view engine', 'ejs');
