@@ -1,5 +1,6 @@
 import express from "express";
 import homeRouter from "./routes/home.js";
+import bodyParser from "body-parser";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 
@@ -15,7 +16,10 @@ app.set('view engine', 'ejs');
 // Set the directory for views
 app.set("views", __dirname + "/views");
 
-// Mount the homeRouter to the '/home' path
+// Use body-parser middleware to parse request bodies
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// Mount the homeRouter to the root path
 app.use("/", homeRouter);
 
 
