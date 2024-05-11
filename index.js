@@ -15,7 +15,6 @@ app.set("views", __dirname + "/views");
 
 // Mount the homeRouter to the '/home' path
 app.use("/", homeRouter);
-app.use("/get-weather", homeRouter);
 
 
 const port = process.env.PORT || 3000
