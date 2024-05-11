@@ -2,6 +2,7 @@ import express from "express"
 import axios from "axios"
 import bodyParser from "body-parser"
 import env from "dotenv"
+import ejsLayouts from "express-ejs-layouts"
 
 // const app = express()
 const homeRouter = express.Router();
@@ -14,7 +15,7 @@ const weather_apiKey = process.env.apikey;
 
 homeRouter.use(bodyParser.urlencoded({ extended: true }));
 
-
+homeRouter.use(ejsLayouts);
 
 homeRouter.get('/', (req, res) => {
   res.render('index.ejs')
