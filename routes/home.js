@@ -14,6 +14,7 @@ const weather_apiKey = process.env.apikey;
 
 homeRouter.use(bodyParser.urlencoded({ extended: true }));
 
+homeRouter.use(express.static('public'))
 
 homeRouter.get('/', (req, res) => {
   res.render('index.ejs')
