@@ -36,8 +36,18 @@ homeRouter.post("/", async (req, res) => {
   };
   try {
     const result = await axios.get(API_URL, queryParams);
+    const weatherInfo = result.data
+
+    let weatherArea = weatherInfo.weather[0].main;
+    let countryCode = weatherInfo.sys.country;
+    let weatherDescription = weatherInfo.weather[0].description
   //   console.log(result);
-    res.render("index.ejs", { content: result.data });
+    res.render("index.ejs", { 
+      content: weatherInfo,
+      weatherArea: weatherArea,
+      countryCode: countryCode,
+      weatherDescription: weatherDescription
+    });
   } catch (error) {
       console.log(error.response.data);
     res.render("index.ejs", { content: JSON.stringify(error.response.data) });

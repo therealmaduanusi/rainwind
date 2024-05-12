@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Nunito Sans", sans-serif;
+}
+
+#container {
+    max-width: 400px;
+    margin:  2rem auto;
+    background-color: rgb(122, 222, 255);
+    padding: 4rem;
+    line-height: 2rem;
+    border-radius: 10px;
+
+    h1 {
+        font-weight: 900;
+    }
+}
+
+
+form input {
+    width: 100%;
+    padding: 1rem 0;
+    margin: 10px 0;
+    border-radius: 10px;
+    border: 1px solid ;
+    font-family: "Nunito Sans", sans-serif;
+    font-weight: 700;
+}
+
+form input[type="text"]{
+    text-align: center;
+    outline-style: none;
+}
+
+span{
+    font-weight: 700;
+}
+span[class="countrycode"]{
+    font-size: 10px;
+}
+
+// aside and footer
+aside, footer{
+    margin-top: 1rem;
+}
+aside a,
+footer a {
+    text-decoration: none;
+    color: rgb(105, 192, 221);
+}
+aside a:active,
+footer a:active {
+    color: rgb(255, 0, 0);
+}
+
+// media query max and min widths
+@media (max-width: 405px) {
+    #container {
+        padding: 4rem 2rem;
+        margin: 3rem 0.7rem 4rem;
+
+    }
+}
+
+@media (min-width: 800px) {
+    #container{
+        max-width: 60%;
+    }
+    form input{
+        padding: 1.5rem 0;
+    }
+}

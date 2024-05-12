@@ -3,23 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Weather App</title>
 </head>
 <body>
     <!-- remember to handle error if weather name isn't register -->
-    <form action="/" method="post">
+    <main id="container">
         <h1>Weather App</h1>
-        <input type="text" name="city" placeholder="enter city name" autofocus>
-        <input type="submit">
-    </form>
-    <% if (locals.content) { %>
-        <ul>
-            <li><%= content.weather[0].main %></li>
-            <li><%= content.name %> <span><%= content.sys.country%></span></li>
-        </ul>
-        <p>description: <%= content.weather[0].description %></p>
-    <% } else { %>
-        <p>what for data...</p>
-    <%  } %> 
+        <form action="/" method="post">
+            <input type="text" name="city" placeholder="Enter city name" autofocus>
+            <input type="submit">
+        </form>
+        <% if (locals.content) { %>
+            <% if (!content.cod) { %>
+                <div class="img-conatiner" style="text-align: center;">
+                    <img  style="max-width: 50%;" src="/image/rainingIcon.svg" alt="rainingIcon">
+                </div>
+                <p style="text-align: center; color: #f00;">city not found</p>
+            <% } else { %>
+                <p><span>Weather:</span> <%= locals.weatherArea %></p>
+                <p><span>City:</span> <%= content.name %> <span class="countrycode"><%= locals.countryCode%></span></p>
+                <p><span>Description:</span> <%= locals.weatherDescription %></p>
+            <% } %>
+        <% } else { %>
+            <p>Weather Info...</p>
+        <%  } %> 
+    </main>
+
+    <aside>
+        <p style="text-align: center;">Note: All city reference data are gotten from <a href="https://openweathermap.org/">openweathermap</a></p>
+    </aside>
+
+    <footer> 
+        <p style="text-align: center;">&copy; reserved</p>
+        <p style="text-align: center;">built by <a href="https://twitter.com/madu_anusi">Victor Maduanusi</a></p>
+    </footer>
 </body>
 </html>

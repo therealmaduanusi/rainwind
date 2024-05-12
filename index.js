@@ -19,6 +19,9 @@ app.set("views", __dirname + "/views");
 // Use body-parser middleware to parse request bodies
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// public folder
+app.use(express.static('public'))
+
 // Mount the homeRouter to the root path
 app.use("/", homeRouter);
 
