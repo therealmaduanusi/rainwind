@@ -20,14 +20,22 @@ app.set("views", __dirname + "/views");
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Specify the directory where your static files (CSS, images, etc.) are located
-// app.use(express.static(__dirname + '/public'));
-app.use(express.static('public', { 
-  setHeaders: (res, path, stat) => {
-    if (path.endsWith('.css')) {
-      res.setHeader('Content-Type', 'text/css');
-    }
+app.use(express.static(__dirname + '/public'));
+// app.use(express.static('public', { 
+//   setHeaders: (res, path, stat) => {
+//     if (path.endsWith('.css')) {
+//       res.setHeader('Content-Type', 'text/css');
+//     }
+//   }
+// }))
+function setCssContentType(req, res, next) {
+  if (req.url.endsWith('.css')) {
+    res.setHeader('Content-Type', 'text/css');
   }
-}))
+  next();
+}
+
+app.use(setCssContentType);
 
 // Mount the homeRouter to the root path
 app.use("/", homeRouter);
