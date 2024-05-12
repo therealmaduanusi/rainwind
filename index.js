@@ -19,8 +19,8 @@ app.set("views", __dirname + "/views");
 // Use body-parser middleware to parse request bodies
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// public folder
-app.use(express.static('public'))
+// Specify the directory where your static files (CSS, images, etc.) are located
+app.use(express.static(__dirname + '/public'));
 
 // Mount the homeRouter to the root path
 app.use("/", homeRouter);
