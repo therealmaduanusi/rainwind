@@ -28,14 +28,9 @@ app.use(express.static(__dirname + '/public'));
 //     }
 //   }
 // }))
-function setCssContentType(req, res, next) {
-  if (req.url.endsWith('.css')) {
-    res.setHeader('Content-Type', 'text/css');
-  }
-  next();
-}
-
-app.use(setCssContentType);
+app.get('/', (req, res) => {
+  res.setHeader('Content-Type', 'text/css');
+});
 
 // Mount the homeRouter to the root path
 app.use("/", homeRouter);
