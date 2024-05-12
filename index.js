@@ -20,7 +20,7 @@ app.set("views", __dirname + "/views");
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Specify the directory where your static files (CSS, images, etc.) are located
-app.use(express.static(__dirname + '/public'));
+app.use('/',express.static(__dirname + '/public'));
 
 // Mount the homeRouter to the root path
 app.use("/", homeRouter);
